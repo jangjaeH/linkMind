@@ -10,9 +10,8 @@ export default function LoginPage() {
             <span className="eyebrow">Authentication-ready</span>
             <h1>팀 로그인 구조를 고려한 LinkMind 진입 화면</h1>
             <p>
-              현재는 빠르게 확인 가능한 데모 로그인으로 구현해두었고, 이후 Supabase, Auth.js,
-              Firebase 같은 실제 인증 시스템으로 교체하기 쉽도록 쿠키와 사용자 타입 구조를 먼저
-              만들어 두었습니다.
+              이제는 Docker Postgres 위에 실제 로그인과 회원가입이 연결됩니다. 기본 테스트 계정은
+              `system / 1234`로 바로 확인할 수 있고, 새 계정도 직접 생성할 수 있습니다.
             </p>
             <ul className="check-list">
               {loginHints.map((hint) => (
@@ -23,8 +22,8 @@ export default function LoginPage() {
 
           <div className="login-panel">
             <div className="login-panel__header">
-              <span>Sign in</span>
-              <small>Demo credentials work with any password</small>
+              <span>Auth</span>
+              <small>Test account: system / 1234</small>
             </div>
             <LoginForm />
           </div>
@@ -33,4 +32,3 @@ export default function LoginPage() {
     </div>
   );
 }
-

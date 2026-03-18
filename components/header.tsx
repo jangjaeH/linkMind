@@ -29,10 +29,16 @@ export function Header() {
 
         <nav className="site-nav" aria-label="Primary">
           {links.map((link) => (
+            // Keep the workspace tab active on nested workspace routes.
             <Link
               key={link.href}
               href={link.href}
-              className={pathname === link.href ? "is-active" : undefined}
+              className={
+                pathname === link.href ||
+                (link.href === "/workspace" && pathname.startsWith("/workspace/"))
+                  ? "is-active"
+                  : undefined
+              }
             >
               {link.label}
             </Link>
@@ -49,9 +55,10 @@ export function Header() {
               <button
                 className="ghost-button"
                 type="button"
-                onClick={() => {
-                  logout();
+                onClick={async () => {
+                  await logout();
                   router.push("/");
+                  router.refresh();
                 }}
               >
                 Logout

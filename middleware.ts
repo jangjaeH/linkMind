@@ -15,7 +15,7 @@ export function middleware(request: NextRequest) {
 
   const session = request.cookies.get(AUTH_COOKIE)?.value;
 
-  if (session === "authenticated") {
+  if (session) {
     return NextResponse.next();
   }
 
@@ -28,4 +28,3 @@ export function middleware(request: NextRequest) {
 export const config = {
   matcher: ["/workspace/:path*"]
 };
-
